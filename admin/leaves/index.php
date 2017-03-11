@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: LiuACG
- * Date: 2017/3/11
- * Time: 15:41
- */
+
+require_once('../../setup.php');
+
+$smarty->display('admin/leaves/index.tpl');
