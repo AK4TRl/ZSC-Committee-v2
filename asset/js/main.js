@@ -4,8 +4,8 @@
 
 ;$(function () {
     var resize = function() {
-        var qr = document.getElementsByClassName('qr-code')[0];
-        qr.style.top = ((window.innerHeight - 260) / 2) + 'px';
+        var qr = $('.qr-code');
+        qr.css('top', (($(window).height() - 260) / 2) + 'px');
     };
     resize();
 
