@@ -2,5 +2,8 @@
 files/
 phpMyAdmin/
 
+Smarty/template_c/
+Smarty/cache/
+
 asset/admin
 asset/image/intro
