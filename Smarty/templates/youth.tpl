@@ -2,6 +2,11 @@
 
 {block name="title"}青年在线{/block}
 
+{block name="style-sheet"}
+    <style>
+    </style>
+{/block}
+
 {block name="content"}
     <div class="container">
         <table class="poster">

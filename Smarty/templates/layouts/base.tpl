@@ -9,16 +9,18 @@
 
     <!-- Style Sheet -->
     <link rel="stylesheet" href="{url URL='asset/css/reset.css' }">
-    <link rel="stylesheet" href="{url URL='asset/css/style.css?_t=32' }">
+    <link rel="stylesheet" href="{url URL='asset/css/style.css?_t=35' }">
     {block name='style-sheet'}{/block}
 
     <!-- JavaScript -->
-    <script type="text/javascript" src="{url URL='asset/js/jquery-3.1.1.js' }"></script>
+    {*<script type="text/javascript" src="{url URL='asset/js/jquery-3.1.1.js' }"></script>*}
+    <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/ieBetter.js/1.0.2/ieBetter.js"></script>
     <script type="text/javascript" src="{url URL='asset/js/main.js?' }"></script>
     {block name='preload-script'}{/block}
 </head>
 <body>
-<nav class="navbar">
+<div class="navbar">
     <div class="container">
         <ul class="nav nav-left">
             <li><a href="{url URL='/' }">首页</a></li>
@@ -34,13 +36,13 @@
                 <div class="search clean-fix">
                     <form action="{url URL="search.php"}">
                         <input name="s" class="search-text" type="text" title="搜索" placeholder="Search...">
-                        <button class="search-btn" type="submit">搜索</button>
+                        <input class="search-btn" type="submit" value="搜索">
                     </form>
                 </div>
             </li>
         </ul>
     </div>
-</nav>
+</div>
 
 <div class="header">
     <div class="container">

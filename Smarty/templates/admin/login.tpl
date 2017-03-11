@@ -6,8 +6,8 @@
 
     <title>Login</title>
 
-    <link href="{url URL="asset/admin/css/style.css"}" rel="stylesheet">
-    <link href="{url URL="asset/admin/css/style-responsive.css"}" rel="stylesheet">
+    <link href="{url URL="admin/asset/css/style.css"}" rel="stylesheet">
+    <link href="{url URL="admin/asset/css/style-responsive.css"}" rel="stylesheet">
 </head>
 
 <body class="login-body">
@@ -17,7 +17,7 @@
     <form class="form-signin" action="" method="POST">
         <div class="form-signin-heading text-center">
             <h1 class="sign-title">Sign In</h1>
-            <img src="{url URL="asset/admin/images/login-logo.png"}" alt=""/>
+            <img src="{url URL="admin/asset/images/login-logo.png"}" alt=""/>
         </div>
         <div class="login-wrap">
             <input type="text" class="form-control" name="username" placeholder="User Name" autofocus>
@@ -35,9 +35,9 @@
         </div>
     </form>
 
-    <script src="{url URL="asset/admin/js/jquery-1.10.2.min.js"}"></script>
-    <script src="{url URL="asset/admin/js/bootstrap.min.js"}"></script>
-    <script src="{url URL="asset/admin/js/modernizr.min.js"}"></script>
+    <script src="{url URL="admin/asset/js/jquery-1.10.2.min.js"}"></script>
+    <script src="{url URL="admin/asset/js/bootstrap.min.js"}"></script>
+    <script src="{url URL="admin/asset/js/modernizr.min.js"}"></script>
 </div>
 </body>
 </html>
