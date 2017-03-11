@@ -2,7 +2,7 @@
 files/
 phpMyAdmin/
 
-Smarty/template_c/
+Smarty/templates_c/
 Smarty/cache/
 
 asset/admin
