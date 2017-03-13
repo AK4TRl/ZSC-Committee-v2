@@ -1,7 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: LiuACG
- * Date: 2017/3/13
- * Time: 21:01
- */
+
+session_start();
+
+require_once(dirname(__FILE__) . '/../setup.php');
+
+unset($_SESSION);
+
+session_destroy();
+
+header('location: /admin/login.php');
+

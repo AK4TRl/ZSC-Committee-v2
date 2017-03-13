@@ -2,8 +2,8 @@
 
 session_start();
 
-require_once(dirname(__FILE__) . '/../setup.php');
-require_once(dirname(__FILE__) . '/utils/Log.php');
+require_once(dirname(__FILE__) . '/../../setup.php');
+require_once(dirname(__FILE__) . '/Log.php');
 
 try {
     if (!isset($_SESSION['user'])) {
