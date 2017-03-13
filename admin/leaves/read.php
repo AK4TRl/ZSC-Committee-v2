@@ -1,6 +1,7 @@
 <?php
 
-require_once('../../setup.php');
+require_once(dirname(__FILE__) . '/../../setup.php');
+require_once(dirname(__FILE__) . '/../utils/admin.php');
 
 try {
     $id = $_GET['id'];
@@ -27,5 +28,5 @@ try {
 
     $smarty->display('admin/leaves/read.tpl');
 } catch (Exception $ex) {
-    // TODO:
+    Log::error($ex->getMessage());
 }
