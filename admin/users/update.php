@@ -1,6 +1,7 @@
 <?php
 
-require_once('../../setup.php');
+require_once(dirname(__FILE__) . '/../../setup.php');
+require_once(dirname(__FILE__) . '/../utils/admin.php');
 
 try {
     if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST)) {
@@ -22,5 +23,5 @@ try {
 
     header('location: /admin/users/');
 } catch (Exception $ex) {
-    // TODO
+    Log::error($ex);
 }

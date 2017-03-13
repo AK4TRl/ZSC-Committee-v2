@@ -1,6 +1,7 @@
 <?php
 
-require_once('../../setup.php');
+require_once(dirname(__FILE__) . '/../../setup.php');
+require_once(dirname(__FILE__) . '/../utils/admin.php');
 
 try {
     $db = new PDO(DB_DSN, DB_USER, DB_PSW);
@@ -21,9 +22,9 @@ try {
 
     $smarty->assign('users', $users);
 } catch (PDOException $ex) {
-    // TODO
+    Log::error($ex);
 } catch (Exception $ex) {
-    // TODO
+    Log::error($ex);
 }
 
 $smarty->display('admin/users/index.tpl');
