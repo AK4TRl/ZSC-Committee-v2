@@ -1,7 +1,8 @@
 <?php
 
-require_once('../../setup.php');
-require_once('../../functions.php');
+require_once(dirname(__FILE__) . '/../../setup.php');
+require_once(dirname(__FILE__) . '/../utils/admin.php');
+require_once(dirname(__FILE__) . '/../../functions.php');
 
 $post = null;
 $category = null;
@@ -15,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST)) {
         $status = $_POST['status'];
         $category = isset($_POST['tags']) ? $_POST['tags'] : null;
 
-        if($id == 'new') {
+        if ($id == 'new') {
             $db = new PDO(DB_DSN, DB_USER, DB_PSW);
             $stmt = $db->prepare('INSERT INTO `posts`(`post_author`, `post_date`, `post_modified`, `post_title`, `post_subtitle`, `post_content`, `post_status`) VALUES(:author, NOW(), NOW(), :title, :subtitle, :content, :status)');
             // TODO: post author
@@ -42,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST)) {
         }
 
         $tagsList = array();
-        if($category != null) {
+        if ($category != null) {
             foreach ($category as $value) {
                 if (preg_match('/__new_tag__(:<name>.*?)__/', $value, $matches)) {
                     $tagName = $matches["name"];
@@ -75,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST)) {
             'status' => $status
         );
     } catch (Exception $ex) {
-        // TODO: log
+        Log::error($ex->getMessage());
     }
 } else {
     try {
@@ -96,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST)) {
             throw new Exception("没有找到该文章");
         }
     } catch (Exception $ex) {
-        // TODO: log
+        Log::error($ex->getMessage());
         die($ex->getMessage());
     }
 }

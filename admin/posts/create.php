@@ -1,7 +1,8 @@
 <?php
 
-require_once('../../setup.php');
-require_once('../../functions.php');
+require_once(dirname(__FILE__) . '/../../setup.php');
+require_once(dirname(__FILE__) . '/../utils/admin.php');
+require_once(dirname(__FILE__) . '/../../functions.php');
 
 $post = array(
     'id' => 'new',
