@@ -78,13 +78,26 @@
                             <h5 class="title">服务器运行日志</h5>
                             <ul class="dropdown-list normal-list">
                                 {if (isset($notification) && is_array($notification) && (count($notification) > 0))}
-                                    <li class="new">
-                                        <a href="">
-                                            <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                            <span class="name">Server #1 overloaded.  </span>
-                                            <em class="small">34 mins</em>
-                                        </a>
-                                    </li>
+                                    {foreach $notification as $item}
+                                        <li class="new">
+                                            <a href="">
+                                                {if $item.level == 0}
+                                                    <span class="label label-info"><i class="fa fa-bolt"></i></span>
+                                                {elseif $item.level == 1}
+                                                    <span class="label label-warning"><i class="fa fa-bolt"></i></span>
+                                                {elseif $item.level == 2}
+                                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                                {elseif $item.level == 3}
+                                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                                {elseif $item.level == 4}
+                                                    <span class="label label-primary"><i class="fa fa-bolt"></i></span>
+                                                {/if}
+                                                <span class="name">{$item.event}  </span>
+                                                <em class="small">{intval((time() - strtotime($item.date)) / 100)}
+                                                    mins</em>
+                                            </a>
+                                        </li>
+                                    {/foreach}
                                 {else}
                                     <li class="new">暂无通知</li>
                                 {/if}
@@ -94,14 +107,14 @@
                     </li>
                     <li>
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            <img src="{url URL="admin/asset/images/photos/user-avatar.png"}" alt=""/>
-                            John Doe
+                            <img src="{url URL="admin/asset/images/avatar.jpg"}" alt=""/>
+                            {$user.nick}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                            <li><a href="#"><i class="fa fa-user"></i> 个人资料</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i> 设置</a></li>
-                            <li><a href="#"><i class="fa fa-sign-out"></i> 退出</a></li>
+                            {*<li><a href="#"><i class="fa fa-user"></i> 个人资料</a></li>*}
+                            <li><a href="{url URL="admin/users/profile.php"}"><i class="fa fa-cog"></i> 设置</a></li>
+                            <li><a href="{url URL="admin/logout.php"}"><i class="fa fa-sign-out"></i> 退出</a></li>
                         </ul>
                     </li>
 
