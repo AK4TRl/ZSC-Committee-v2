@@ -124,9 +124,16 @@
 {block name='script'}
     <script id="banner-data" type="application/json" class="json-inline">{$banner}</script>
     <script>
+        "use strict";
+        var json_decode = function (str) {
+            //var tmp = (new Function("return " + str))();
+            return eval(str);
+        };
+
         (function () {
             var tmp = $('.banner-content').find('.banner-inner').eq(0);
-            var data = JSON.parse(document.getElementById('banner-data').innerText);
+            var data = json_decode($('#banner-data').eq(0).html());
+            console.log(data);
             data.forEach(function (item, idx) {
                 var str = '<div class="item:active"><a href=":url" title=":text"><div class="image"><span class="img-center"></span><img src=":image" alt=""></div><div class="text">:text</div></a></div>'
                     .replace(/:active/g, idx == 0 ? ' active' : '')
@@ -137,13 +144,13 @@
             });
 
             new Banner('.banner-content');
-        })();
+        }());
 
         (function () {
             var tabs = $('.tabs > ul.tabs-title > li');
             var contents = $('.tabs > ul.tabs-content > li');
 
-            tabs.each(function () {
+            tabs.each(function (idx) {
                 var cur = this;
                 $(cur).hover(function () {
                     tabs.each(function () {
@@ -153,7 +160,7 @@
                         $(this).removeClass('active');
                     });
                     $(cur).addClass('active');
-                    contents.eq($.makeArray(tabs).indexOf(cur)).addClass('active');
+                    contents.eq(idx).addClass('active');
                 });
             });
         }());

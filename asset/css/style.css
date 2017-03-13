@@ -566,6 +566,7 @@ ul.nav > li > a:hover {
     border: 3px solid #cd5c5d;
     border-radius: 10px;
     background-image: url('/asset/image/paper.jpg');
+    behavior: url('css3pie/PIE.php');
 }
 
 .practice legend {
@@ -759,8 +760,8 @@ ul.nav > li > a:hover {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #000;
     opacity: .4;
+    filter: alpha(opacity=40);
     z-index: 20000;
 }
 

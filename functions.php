@@ -493,6 +493,17 @@ function getIdByTagName($name) {
     return null;
 }
 
+function getNameByTagId($id) {
+    $db = new PDO(DB_DSN, DB_USER, DB_PSW);
+    $stmt = $db->prepare("SELECT `name` FROM `terms` WHERE `term_id` = :id");
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    if($row = $stmt->fetch()) {
+        return $row['name'];
+    }
+    return null;
+}
+
 function addNewTag($tag) {
     if(($res = getIdByTagName($tag)) != null)
         return $res;
