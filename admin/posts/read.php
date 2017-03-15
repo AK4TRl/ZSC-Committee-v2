@@ -1,7 +1,8 @@
 <?php
 
-require_once ('../../setup.php');
-require_once ('../../functions.php');
+require_once(dirname(__FILE__) . '/../../setup.php');
+require_once(dirname(__FILE__) . '/../utils/admin.php');
+require_once(dirname(__FILE__) . '/../../functions.php');
 
 try {
     $id = $_GET['id'];
@@ -27,15 +28,21 @@ try {
         die("<h1>文章找不到了...</h1>");
     }
 
-    switch(intval($article['status'])) {
-        case 0: $article['status'] = "隐藏"; break;
-        case 1: $article['status'] = "公开"; break;
-        case 2: $article['status'] = "草稿"; break;
+    switch (intval($article['status'])) {
+        case 0:
+            $article['status'] = "隐藏";
+            break;
+        case 1:
+            $article['status'] = "公开";
+            break;
+        case 2:
+            $article['status'] = "草稿";
+            break;
     }
 
     $smarty->assign('article', $article);
 
     $smarty->display('admin/posts/read.tpl');
 } catch (Exception $ex) {
-    // TODO
+    Log::error($ex->getMessage());
 }

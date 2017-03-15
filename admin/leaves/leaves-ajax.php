@@ -1,6 +1,7 @@
 <?php
 
-require_once('../../setup.php');
+require_once(dirname(__FILE__) . '/../../setup.php');
+require_once(dirname(__FILE__) . '/../utils/admin.php');
 
 try {
     $draw = $_POST['draw'];
@@ -108,8 +109,6 @@ try {
         "recordsFiltered" => $filter,
         "data" => $result
     ), JSON_UNESCAPED_UNICODE);
-} catch (PDOException $pe) {
-    //
 } catch (Exception $ex) {
-    //
+    Log::error($ex->getMessage());
 }

@@ -6,8 +6,9 @@
  * Time: 19:36
  */
 
-require_once('../../setup.php');
-require_once('../../functions.php');
+require_once(dirname(__FILE__) . '/../../setup.php');
+require_once(dirname(__FILE__) . '/../utils/admin.php');
+require_once(dirname(__FILE__) . '/../../functions.php');
 
 function getPostStatus($status)
 {
@@ -128,6 +129,6 @@ try {
         "recordsFiltered" => $filter,
         "data" => $result
     ), JSON_UNESCAPED_UNICODE);
-} catch (PDOException $pe) {
-    //
+} catch (Exception $ex) {
+    Log::error($ex->getMessage());
 }
